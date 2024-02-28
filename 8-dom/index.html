@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+   async function findsum(){
+        const a=document.getElementById("firstnumber").value;
+        const b=document.getElementById("secondnumber").value
+        const element=document.getElementById("sum");
+        //element.innerHTML=parseInt(a)+parseInt(b) 
+        //the above code exposes the backend logic so make a server and pass the a and b and fetch the result ,run server.js 
+        const response = await fetch(`http://localhost:3000/?a=${a}&b=${b}`);
+        const result = await response.text(); // Extract text content from response
+        element.innerHTML=result;
+
+    }
+</script>
+<body>
+    <input id="firstnumber" type="text" placeholder="firstnumber"></input><br/>
+    <input id="secondnumber" type="text" placeholder="secondnumber"></input><br/>
+    <button onclick="findsum()">calculate sum</button>
+    <div id="sum"></div>
+</body>
+</html>
