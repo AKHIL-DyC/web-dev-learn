@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let timeout;
+    //debounce is used to reduce the api call to backend,it is calling the main function when the other function is not called for sometime if called the time is reset
+    function debouncefindsum(){
+        clearTimeout(timeout)
+        timeout=setTimeout(function(){
+            findsum()
+        },2000)
+    }
+   async function findsum(){
+        const a=document.getElementById("firstnumber").value;
+        const b=document.getElementById("secondnumber").value
+        const element=document.getElementById("sum");
+        //element.innerHTML=parseInt(a)+parseInt(b) 
+        //the above code exposes the backend logic so make a server and pass the a and b and fetch the result ,run server.js 
+        const response = await fetch(`http://localhost:3000/?a=${a}&b=${b}`);
+        const result = await response.text(); // Extract text content from response
+        element.innerHTML=result;
+
+    }
+</script>
+<body>
+    <input oninput="debouncefindsum()" id="firstnumber" type="text" placeholder="firstnumber"></input><br/>
+    <input oninput="debouncefindsum()" id="secondnumber" type="text" placeholder="secondnumber"></input><br/>
+    <div id="sum"></div>
+</body>
+</html>

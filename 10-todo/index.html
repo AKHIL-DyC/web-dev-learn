@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let id=1;
+    function addtodo(){
+        const title=document.getElementById("title").value;
+        const description=document.getElementById("description").value;
+        //console.log(title);
+        //console.log(description);
+        const task=document.createElement("div");
+        task.innerHTML=`
+        <div>${title}<div>
+            <div>${description}</div>
+        <button >DONE</button>`
+        document.getElementById("container").appendChild(task);
+    }
+
+</script>
+<body>
+    <input type="text" id="title" placeholder="title"></input>
+    <br></br>
+    <input type="text" id="description" placeholder="description"></input>
+    <br></br>
+    <button onclick="addtodo()">ADD TODO</button>
+    <div id="container"></div>
+</body>
+</html>
