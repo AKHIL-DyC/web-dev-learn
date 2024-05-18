@@ -1,3 +1,6 @@
+//hashing is one way 
+//encription is two way can be decripted
+//jwt token is also samilar to encription but  it can be verified only by a password/signature
 const jwt =require("jsonwebtoken")
 const express=require("express")
 const app=express()
@@ -42,7 +45,8 @@ app.get("/list",(req,res)=>{
     const token=req.headers.authorization
     const decoded=jwt.verify(token,jwtpass);
     const username=decoded.username
-    console.log(username);
+    //console.log(username);
+    res.send(username);
 })
 app.listen(3000,()=>{
     console.log("listening...")

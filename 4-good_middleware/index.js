@@ -10,6 +10,8 @@ const express=require("express");
 const zod=require("zod");
 const schema_list=zod.array(zod.number());
 const schema_id=zod.number();
+const schema_email=zod.string().email()//this is how email is verified
+
 let request=0;
 const app=express();
 app.use(express.json());
@@ -75,8 +77,10 @@ app.post("/zod", (req, res) => {
     const id=req.body.id;
     const listf=schema_list.safeParse(array);
     const idf=schema_id.safeParse(id);
+    const email=req.headers.email;
+    const emailf=schema_email.safeParse(email);
     //res.send("using zod list is "+listf+"id is"+idf);
-    if(!listf.success||!idf.success){
+    if(!listf.success||!idf.success||!emailf.success){
         res.send({
             "msg":"some invalid input"
         })
