@@ -8,6 +8,7 @@ import Wrerender from '../theory/Wrerender'
 import { Todo } from '../theory/Todo'
 import { UseffectEx } from '../theory/UseffectEx'
 import { UseMemoEx } from '../theory/UseMemoEx'
+import UseCallBackEx from '../theory/UseCallBackEx'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
      <Todo/>
      <UseffectEx/>
      <UseMemoEx/>
+     <UseCallBackEx/>
     </>
   )
 }
