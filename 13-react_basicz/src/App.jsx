@@ -7,6 +7,7 @@ const  Propdrilling =React.lazy(()=>import ('./pages/Propdrilling'))
 const Rerending =React.lazy(()=>import('./pages/Rerending'))
 import{BrowserRouter,Route,Routes}from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Recoil from './pages/Recoil'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -19,6 +20,7 @@ function App() {
           <Route path='/'element={<Suspense fallback={"loading..."}><Landing/></Suspense>}/>
           <Route path='/rerender'element={<Suspense fallback={"loading..."}><Rerending/></Suspense>}/>
           <Route path='/propdrilling'element={<Suspense fallback={"loading..."}><Propdrilling/></Suspense>}/>
+          <Route path='/recoil' element={<Suspense fallback={"loading..."}><Recoil/></Suspense>}></Route>
         </Routes>
      
      </div>

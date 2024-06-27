@@ -35,6 +35,13 @@ export default function Component() {
         >
           propdrilling
         </Link>
+        <Link to="/recoil"
+          className="hover:underline hover:underline-offset-4"
+          style={{ color: "#f4f4f5", textDecoration: "none" }}
+          prefetch={false}
+        >
+          recoil
+        </Link>
       </div>
     </div>
   )
