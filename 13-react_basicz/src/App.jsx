@@ -7,7 +7,7 @@ const  Propdrilling =React.lazy(()=>import ('./pages/Propdrilling'))
 const Rerending =React.lazy(()=>import('./pages/Rerending'))
 import{BrowserRouter,Route,Routes}from 'react-router-dom'
 import Navbar from '../components/Navbar'
-import Recoil from './pages/Recoil'
+const  Recoil =React.lazy(()=>import('./pages/Recoil'))
 function App() {
   const [count, setCount] = useState(0)
 

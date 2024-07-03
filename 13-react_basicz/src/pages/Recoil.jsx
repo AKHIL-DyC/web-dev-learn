@@ -3,6 +3,7 @@ import { Countercontext } from '../context';
 import pic from '../../public/usecontext.png'
 import { RecoilRoot, selector, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { countAtom, eventSelecter } from '../store/atoms/count';
+import Notificationbar from '../../components/Notificationbar';
 const Recoil = () => {
   
   return (
@@ -13,6 +14,9 @@ const Recoil = () => {
       <div style={{width:'80vw'}}>
       <img src={pic} alt='image' style={{width:"70vw"}}></img>
       </div>
+      <RecoilRoot>
+      <Notificationbar></Notificationbar>
+      </RecoilRoot>
     </div>
   )
 }
